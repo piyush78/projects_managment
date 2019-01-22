@@ -1,0 +1,31 @@
+<div class="field">
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+</div>
+<%= print_error(@task.errors, :title) %>
+
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+</div>
+
+<div class="field">
+  <%= form.label :deadline %>
+  <%= form.date_field :deadline %>
+</div>
+<%= print_error(@task.errors, :deadline) %>
+
+<div class="field">
+  <%= form.label :priority %>
+  <%= form.select :priority, Task.priorities.keys.map { |w| [w.humanize, w] } %>
+</div>
+<%= print_error(@task.errors, :priority) %>
+
+<div class="field">
+  <%= form.label :task_done %>
+  <%= form.check_box :task_done %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>

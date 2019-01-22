@@ -1,0 +1,34 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+table.tasks {width: 100%;
+}
+.tasks tr th {
+    background: gray;
+    padding: 12px;
+    color: #ffff;
+    font-size: 16px;
+}
+.tasks tr th.actions{
+	text-align: center;
+}
+.tasks tr:nth-child(2n){background-color: #eee;}
+.tasks tr td{padding: 9px 12px;}
+.tasks tr td.red a{color: red;}
+.tasks tr td.green a{color: green;}
+.main h1{margin: 30px 0 20px 0;}
+
+.tasks select {
+    background: #808080;
+    border: 0 none;
+    color: #fff;
+    padding: 3px 5px;
+}
+.new_btn{
+	margin-bottom: 55px;
+    display: inline-block;
+    background: #4f336c;
+    padding: 6px 15px;
+    color: #fff !important;
+    margin-top: 10px;
+}

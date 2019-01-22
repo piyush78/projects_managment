@@ -1,0 +1,45 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+table.projects {
+    width: 100%;
+}
+.projects tr th {
+    background: gray;
+    padding: 12px;
+    color: #ffff;
+    font-size: 16px;
+}
+.projects tr th.actions{
+	text-align: center;
+}
+.projects tr:nth-child(2n){background-color: #eee;}
+.projects tr td{padding: 9px 12px;}
+.projects tr td.red a{color: red;}
+.projects tr td.green a{color: green;}
+.main h1{margin: 30px 0 20px 0;}
+
+
+.modal-header{background: #eee;}
+.show_model .show_content{min-height: 150px; padding: 1rem;}
+.show_model .show_content p{font-size: 16px; margin-bottom: 10px;}
+
+.show_model .show_content h3{    margin: 0 0 20px 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;}
+
+.show_model .show_content .field label{width: 120px; display: inline-block !important;}
+.show_model .show_content .field input{border: 1px solid #eee;
+    padding: 5px 10px;}
+
+.show_model .show_content .actions input,
+.show_model .show_content .show_btn{    background: #7951a2;
+    border: 0 none;
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 14px;
+    margin: 15px 15px 15px 0;  float: left;}
+.show_model .show_content label{
+	font-size: 16px;
+	font-weight: bold;
+}

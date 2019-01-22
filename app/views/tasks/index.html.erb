@@ -1,0 +1,65 @@
+<div id='task_modal_new_content'></div>
+<div id='task_modal_edit_content'></div>
+<div id='task_modal_show_content'></div>
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<table class="tasks">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Deadline</th>
+      <th>Task_done</th>
+      <th>Priority</th>
+      <th colspan="5" class="actions">Actions</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.description %></td>
+        <td><%= task.deadline %></td>
+        <td>
+          <%= hidden_field_tag :task_id, task.id %>
+          <label class="switch">
+          <%= check_box_tag :task_done, nil, task.task_done, class: "task_done" %>
+          <span class="slider round"></span>
+        </label>
+        </td>
+        <td><%= hidden_field_tag :task_id, task.id %><%= select_tag 'Priority', options_for_select(Task.priorities.keys.map { |w| [w.humanize, w]}, task.priority), class: "priority_order" %>
+        </td>
+        <td class="green"><%= link_to 'Show', project_task_path(project_id: @project.id, id: task.id), remote: true %></td>
+        <td class="green"><%= link_to 'Edit', edit_project_task_path(project_id: @project.id, id: task.id), remote: true %></td>
+        <td class="red"><%= link_to 'Destroy', project_task_path(project_id: @project, id: task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Task', new_project_task_path(@project), remote: true, class: "new_btn" %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".priority_order").change(function(){
+    var val = $(this).val();
+    var id = $(this).parent().find('#task_id').val();
+    $.ajax({
+      url: "/priority_task?id="+id+"&priority="+val,
+      type: 'GET'
+    });
+  });
+
+  $(".task_done").change(function(){
+    var val1 = $(this).val();
+    var id = $(this).parent().find('#task_id').val();
+    $.ajax({
+      url: "/task_done?id="+id+"&task_done="+val1,
+      type: 'GET'
+    });
+  });
+});
+</script>

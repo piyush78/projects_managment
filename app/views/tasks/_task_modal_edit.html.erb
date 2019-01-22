@@ -1,0 +1,17 @@
+<div id="task_modal_edit" class="modal fade show_model" role="dialog">
+  	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	      		<h5>project1</h5>
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	      	</div>
+
+	      	<div class="show_content">
+				<h3>Editing Task</h3>
+				<%= form_for @task, url: project_task_path(project_id: @project.id, id: @task.id), html: {remote: true, method: 'put'} do |form| %>
+				<%= render 'form', form: form %>
+				<% end %>
+	      	</div>
+	    </div>
+  	</div>
+</div>

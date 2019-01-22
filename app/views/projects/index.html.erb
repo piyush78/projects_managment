@@ -1,0 +1,29 @@
+<div id='project_modal_content'></div>
+<div id='project_modal_new_content'></div>
+<div id='project_modal_edit_content'></div>
+<h1>Projects</h1>
+  <table class="projects">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th colspan="4" class="actions">Actions</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.description %></td>
+          <td class="green"><%= link_to 'Show', project, remote: true %>
+          </td>
+          <td class="green"><%= link_to 'Edit', edit_project_path(project), remote: true %></td>
+          <td class="red"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td class="green"><%= link_to 'Tasks', project_tasks_path(project) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Project', new_project_path, remote: true, class: "new_btn" %>

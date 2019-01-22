@@ -1,0 +1,29 @@
+<div id="task_modal_show" class="modal fade show_model" role="dialog">
+  	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	      		<h5>projects</h5>
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	      	</div>
+
+	      	<div class="show_content">
+				<p>
+				  <strong>Title:</strong>
+				  <%= @task.title %>
+				</p>
+
+				<p>
+				  <strong>Description:</strong>
+				  <%= @task.description %>
+				</p>
+
+				<p>
+				  <strong>Deadline:</strong>
+				  <%= @task.deadline %>
+				</p>
+
+				<%= link_to 'Edit', edit_project_task_path(project_id: @project.id, id: @task.id), remote: true, class: "show_btn" %>
+	      	</div>
+	    </div>
+  	</div>
+</div>

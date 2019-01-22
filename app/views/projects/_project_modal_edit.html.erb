@@ -1,0 +1,19 @@
+<div id="project_modal_edit" class="modal fade show_model" role="dialog">
+  	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      	<div class="modal-header">
+	      		<h5>project1</h5>
+	        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	      	</div>
+
+	      	<div class="show_content">
+				<h3>Editing Project</h3>
+				<%= form_for @project, url: project_path(@project), html: {remote: true} do |form| %>
+					<%= render 'form', form: form %>
+				<%end%>
+				<%= link_to 'Show', @project, remote: true, class: "show_btn" %>
+				<div id='project_modal_content'></div>
+	      	</div>
+	    </div>
+  	</div>
+</div>
